@@ -1,54 +1,61 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:revisar_app/Demo/homepage.dart';
 
-import 'Demo/reply.dart';
+import 'package:flutter/material.dart';
+import 'package:revisar_app/Demo/MyRatingsScreen.dart';
+import 'package:revisar_app/Demo/MyReviewScreen.dart';
+import 'package:revisar_app/Demo/edit_userProfile.dart';
+import 'package:revisar_app/Demo/onboarding1.dart';
+import 'package:revisar_app/Demo/onboarding2.dart';
+import 'package:revisar_app/Demo/onboarding3.dart';
+import 'package:revisar_app/Demo/search.dart';
+import 'package:revisar_app/Demo/user_signin.dart';
+
+
+import 'Demo/MyFavouritesScreen.dart';
+import 'Demo/PromocodeListScreen.dart';
+import 'Demo/PromocodeScreen.dart';
+import 'Demo/SplashScreen.dart';
+import 'Demo/signUp.dart';
+import 'Demo/user_forget_password.dart';
+import 'Demo/user_profile.dart';
+
+
 
 void main() {
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: homepage(),
-    );
-  }
-}
-
-class reply extends StatefulWidget {
-  const reply({super.key});
-
-  @override
-  State<reply> createState() => _replyState();
-}
-
-class _replyState {
-}
-
-class _MyAppState extends State<reply> {
-  @override
-  Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.yellow[700],
-          title: Text(
-            'Replies ',
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {
-              // Add back navigation here
-            },
-          ),
-        ),
-        body: ReplyScreen(),
+      
+      title: 'Revisar App',
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
       ),
+      debugShowCheckedModeBanner: false,
+      //home: SplashScreen(),
+      initialRoute: '/search',
+      routes: {
+        '/home':(context)=>SplashScreen(),
+        '/onboarding1':(context)=>onboarding1(),
+        '/onboarding2':(context)=>onboarding2(),
+        '/onboarding3':(context)=>onboarding3(),
+        '/signin':(context)=>user_signin(),
+        '/signup':(context)=>signUp(),
+        '/userProfile':(context)=>user_profile(),
+        '/edit_userProfile':(context)=>edit_userProfile(),
+        '/user_forget_password':(context)=>user_forget_password(),
+        '/PromocodeScreen':(context)=>PromocodScreen(),
+        '/PromocodeListScreen':(context)=>PromocodeListScreen(),
+        '/MyReviewsScreen':(context)=>MyReviewsScreen(),
+        '/MyRatingsScreen':(context)=>MyRatingsScreen(),
+        '/MyFavouritesScreen':(context)=>MyFavouritesScreen(),
+        '/search':(context)=>search(),
+      },
     );
   }
 }
+
+

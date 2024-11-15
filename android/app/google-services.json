@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629697041773",
+    "project_id": "revisar-6acb6",
+    "storage_bucket": "revisar-6acb6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629697041773:android:6c9789d02a0496e67c7664",
+        "android_client_info": {
+          "package_name": "com.example.revisar_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYseMnJLJx3btMu9e5xtlMIbEKdOl5uXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
