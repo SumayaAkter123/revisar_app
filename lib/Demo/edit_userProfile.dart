@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 
-
 class edit_userProfile extends StatefulWidget {
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
@@ -10,10 +9,10 @@ class edit_userProfile extends StatefulWidget {
 class _EditProfilePageState extends State<edit_userProfile> {
   final _formKey = GlobalKey<FormState>();
 
-  TextEditingController nameController = TextEditingController(text: 'Tayeem Tushin');
-  TextEditingController mobileController = TextEditingController(text: '01799973437');
-  TextEditingController emailController = TextEditingController(text: 't.tushin360@gmail.com');
-  TextEditingController addressController = TextEditingController(text: 'Wari, Dhaka');
+  TextEditingController nameController = TextEditingController(text: 'Enter  your Name');
+  TextEditingController mobileController = TextEditingController(text: 'Enter your Password');
+  TextEditingController emailController = TextEditingController(text: 'Enter your email');
+  TextEditingController addressController = TextEditingController(text: 'Enter your address');
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +42,7 @@ class _EditProfilePageState extends State<edit_userProfile> {
                   child: IconButton(
                     icon: Icon(Icons.edit, color: Colors.white),
                     onPressed: () {
+
                       // Edit profile picture action
                     },
                   ),

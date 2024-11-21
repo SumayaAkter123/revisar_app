@@ -1,19 +1,5 @@
 import 'package:flutter/material.dart';
-/*
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyRatingsScreen(),
-    );
-  }
-}
-*/
 class MyRatingsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> ratings = [
     {'name': 'KFC', 'rating': 3},
@@ -39,8 +25,12 @@ class MyRatingsScreen extends StatelessWidget {
             ),
           ],
         ),
-        leading: Icon(Icons.arrow_back, color: Colors.black),
-        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         color: Colors.yellow[50],

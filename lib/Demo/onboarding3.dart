@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:revisar_app/Demo/user_signin.dart';
 
 
 class onboarding3 extends StatelessWidget {
@@ -50,7 +51,12 @@ class onboarding3 extends StatelessWidget {
             // Get Started Button
             ElevatedButton(
               onPressed: () {
+
                 // Handle Get Started action
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => user_signin()),
+                );
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text('Getting Started with your review...'),
                 ));

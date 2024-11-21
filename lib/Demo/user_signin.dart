@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:revisar_app/Demo/signUp.dart';
+import 'package:revisar_app/Demo/user_forget_password.dart';
+
+import 'SignInDone.dart';
 
 
 class user_signin extends StatelessWidget {
@@ -24,7 +28,7 @@ class user_signin extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   labelStyle: TextStyle(color: Colors.red),
-                  hintText: 't.tushin360@gmail.com',
+                  hintText: '....@gmail.com',
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: Colors.red),
@@ -56,6 +60,10 @@ class user_signin extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => user_forget_password()),
+                    );
                     // Add forgot password functionality here
                   },
                   child: Text(
@@ -67,6 +75,11 @@ class user_signin extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignInDone()),
+
+                  );
                   // Add sign-in functionality here
                 },
                 style: ElevatedButton.styleFrom(
@@ -85,7 +98,13 @@ class user_signin extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   // Add sign-up navigation here
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => signUp()),
+                  );
                 },
+
+
                 child: Text(
                   "Don't have an account? Sign up",
                   style: TextStyle(color: Colors.black),

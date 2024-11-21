@@ -1,132 +1,115 @@
 import 'package:flutter/material.dart';
 
 
-class PromocodScreen extends StatelessWidget {
+
+class promocodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[50], // Light yellow background
       appBar: AppBar(
+        backgroundColor: Colors.yellow[600], // Yellow app bar
+        title: Text(
+          'Promocodes',
+          style: TextStyle(color: Colors.black),
+        ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Back button
+            Navigator.pop(context); // Back button action
           },
         ),
-        title: Text('Promocodes'),
-        backgroundColor: Colors.yellow, // Match the yellow color from the image
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            // Promocode 1
-            PromoCard(
-              discount: '10%',
-              minRatings: 30,
-              minReviews: 30,
-              oneTimeUse: true,
-              onTap: () {
-                // Navigate to details for this promocode
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Navigating to promocode 10% details'),
-                ));
-              },
-            ),
-            SizedBox(height: 10),
-            // Promocode 2
-            PromoCard(
-              discount: '20%',
-              minRatings: 60,
-              minReviews: 60,
-              oneTimeUse: true,
-              onTap: () {
-                // Navigate to details for this promocode
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Navigating to promocode 20% details'),
-                ));
-              },
-            ),
-            SizedBox(height: 10),
-            // Promocode 3
-            PromoCard(
-              discount: '50%',
-              minRatings: 100,
-              minReviews: 100,
-              oneTimeUse: true,
-              onTap: () {
-                // Navigate to details for this promocode
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Navigating to promocode 50% details'),
-                ));
-              },
-            ),
-            SizedBox(height: 10),
-            // Promocode 4
-            PromoCard(
-              discount: '5%',
-              minRatings: 0,
-              minReviews: 0,
-              oneTimeUse: true,
-              onTap: () {
-                // Navigate to details for this promocode
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Navigating to promocode 5% details'),
-                ));
-              },
+            // Profile Card
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    // Profile Picture
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage('assets/profile_placeholder.png'), // Placeholder, replace with actual image
+                    ),
+                    SizedBox(height: 20),
+
+                    // User Information
+                    Text(
+                      'Tayeem Tushin',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      '01799973437\n'
+                          't.tushin360@gmail.com\n'
+                          'User ID: 000013',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    // Promo Information
+                    Text(
+                      'You have availed 5% discount as a new user of this app.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Show this at the cash counter of any restaurant who accepts REVISAAR and enjoy this discount.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    // Available Discount
+                    Text(
+                      'Avail 5% off',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+
+                    // Thank You Message
+                    Text(
+                      'Thank you for being with REVISAAR',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class PromoCard extends StatelessWidget {
-  final String discount;
-  final int minRatings;
-  final int minReviews;
-  final bool oneTimeUse;
-  final VoidCallback onTap;
-
-  PromoCard({
-    required this.discount,
-    required this.minRatings,
-    required this.minReviews,
-    required this.oneTimeUse,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      elevation: 5,
-      child: ListTile(
-        contentPadding: EdgeInsets.all(16),
-        title: Text(
-          'Avail $discount off',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Minimum ratings = $minRatings'),
-            Text('Minimum reviews = $minReviews'),
-            Text(oneTimeUse ? '(One time use)' : '(No restrictions)'),
-          ],
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: Colors.black,
-        ),
-        onTap: onTap,
       ),
     );
   }

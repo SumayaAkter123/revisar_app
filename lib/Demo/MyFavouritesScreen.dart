@@ -1,38 +1,83 @@
 import 'package:flutter/material.dart';
 
-
-
 class MyFavouritesScreen extends StatelessWidget {
-  final List<String> favourites = [
-    'Khana\'s',
-    'KFC',
-    'Gloria Jean\'s',
-    'Burger Express',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: Colors.yellow,
+        elevation: 0,
         title: Text(
-          'My Favourites',
+          "MyFavourites",
           style: TextStyle(color: Colors.black),
         ),
-        leading: Icon(Icons.arrow_back, color: Colors.black),
-        elevation: 0,
-      ),
-      body: Container(
-        color: Colors.yellow[50],
-        child: ListView.builder(
-          itemCount: favourites.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(favourites[index]),
-              trailing: Icon(Icons.arrow_forward_ios, color: Colors.black, size: 16),
-            );
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context); // Go back to the previous screen
           },
         ),
+      ),
+      backgroundColor: Color(0xFFF9F6E8), // Light yellow background
+      body: ListView(
+        padding: EdgeInsets.all(8.0),
+        children: [
+          ListTile(
+            title: Text(
+              "Khana's",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            trailing: Icon(Icons.chevron_right, color: Colors.black),
+            onTap: () {
+              /*Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => KhanasPage()),
+              );*/
+            },
+          ),
+          Divider(color: Colors.grey.shade300),
+          ListTile(
+            title: Text(
+              "KFC",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            trailing: Icon(Icons.chevron_right, color: Colors.black),
+            onTap: () {
+              /*Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => KFCPage()),
+              );*/
+            },
+          ),
+          Divider(color: Colors.grey.shade300),
+          ListTile(
+            title: Text(
+              "Gloria Jean's",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            trailing: Icon(Icons.chevron_right, color: Colors.black),
+            onTap: () {
+             /* Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GloriaJeansPage()),
+              );*/
+            },
+          ),
+          Divider(color: Colors.grey.shade300),
+          ListTile(
+            title: Text(
+              "Burger Express",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            trailing: Icon(Icons.chevron_right, color: Colors.black),
+            onTap: () {
+             /* Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BurgerExpressPage()),
+              );*/
+            },
+          ),
+        ],
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:revisar_app/Demo/user_signin.dart';
 
 
 
@@ -66,6 +67,32 @@ class _ForgotPasswordPageState extends State<user_forget_password> {
               ),
               SizedBox(height: 10),
 
+              // Send OTP and Resend OTP Buttons
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Send OTP action
+                      },
+                      child: Text('Send OTP'),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Resend OTP action
+                      },
+                      child: Text('Resend OTP'),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+
               // OTP Field
               TextFormField(
                 controller: otpController,
@@ -83,35 +110,14 @@ class _ForgotPasswordPageState extends State<user_forget_password> {
               ),
               SizedBox(height: 20),
 
-              // Send OTP Button
-              ElevatedButton(
-                onPressed: () {
-                  // Send OTP logic
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('OTP sent to your email/mobile'),
-                  ));
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
-                child: Text('Send OTP'),
-              ),
-              SizedBox(height: 10),
-
-              // Resend OTP Button (not in the email text)
-              ElevatedButton(
-                onPressed: () {
-                  // Resend OTP logic
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('OTP resent'),
-                  ));
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
-                child: Text('Resend OTP'),
-              ),
-              SizedBox(height: 20),
 
               // Confirm Button
               ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => user_signin()),
+                  );
                   if (_formKey.currentState!.validate()) {
                     // Handle confirmation logic, e.g., password reset
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(

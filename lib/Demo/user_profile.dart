@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:revisar_app/Demo/MyFavouritesScreen.dart';
+import 'package:revisar_app/Demo/MyRatingsScreen.dart';
+import 'package:revisar_app/Demo/MyReviewScreen.dart';
+import 'package:revisar_app/Demo/PromocodeScreen.dart';
+import 'package:revisar_app/Demo/SplashScreen.dart';
+import 'package:revisar_app/Demo/edit_userProfile.dart';
 
 
 class user_profile extends StatelessWidget {
@@ -12,6 +18,7 @@ class user_profile extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
+            Navigator.pop(context);
             // Add navigation back functionality here
           },
         ),
@@ -59,6 +66,10 @@ class user_profile extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.edit, color: Colors.black),
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => edit_userProfile()),
+                    );
                     // Add edit profile functionality here
                   },
                 ),
@@ -72,13 +83,20 @@ class user_profile extends StatelessWidget {
                   title: Text('My Ratings'),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
                   onTap: () {
-                    // Navigate to My Ratings page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyRatingsScreen()),
+                    );// Navigate to My Ratings page
                   },
                 ),
                 ListTile(
                   title: Text('My Reviews'),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyReviewsScreen()),
+                    );
                     // Navigate to My Reviews page
                   },
                 ),
@@ -86,6 +104,10 @@ class user_profile extends StatelessWidget {
                   title: Text('My Favorites'),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyFavouritesScreen()),
+                    );
                     // Navigate to My Favorites page
                   },
                 ),
@@ -93,6 +115,10 @@ class user_profile extends StatelessWidget {
                   title: Text('Promocodes'),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => promocodeScreen()),
+                    );
                     // Navigate to Promocodes page
                   },
                 ),
@@ -100,6 +126,10 @@ class user_profile extends StatelessWidget {
                   title: Text('Sign Out'),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SplashScreen()),
+                    );
                     // Add sign out functionality here
                   },
                 ),

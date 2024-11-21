@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-/*
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Revisar App',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-      home: SplashScreen(),
-    );
-  }
-}*/
+import 'onboarding1.dart';
+
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Add a delay of 1 second before navigating to Onboarding1 screen
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => onboarding1()),
+      );
+    });
+
     return Scaffold(
       backgroundColor: Colors.yellow[700], // Yellow background
       body: Center(

@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 
-
+import 'package:revisar_app/Demo/onboarding3.dart';
+import 'package:revisar_app/Demo/user_signin.dart';
 
 class onboarding2 extends StatelessWidget {
   @override
@@ -13,18 +15,19 @@ class onboarding2 extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            // Back button action
-            Navigator.pop(context); // Go back to the previous screen
+            // Go back to the previous onboarding screen
+            Navigator.pop(context);
           },
         ),
         actions: [
           // Skip button in top-right corner
           TextButton(
             onPressed: () {
-              // Skip action - navigate to next screen
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('Skip pressed'),
-              ));
+              // Skip action - navigate to SignIn page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => user_signin()),
+              );
             },
             child: Text(
               'Skip',
@@ -65,11 +68,20 @@ class onboarding2 extends StatelessWidget {
             ),
             SizedBox(height: 40),
 
-            // Arrow icon
-            Icon(
-              Icons.chevron_right,
-              size: 40,
-              color: Colors.black,
+            // Arrow icon to go to the SignIn page
+            IconButton(
+              icon: Icon(
+                Icons.chevron_right,
+                size: 40,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                // Navigate to the SignIn page when the arrow is clicked
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => onboarding3()),
+                );
+              },
             ),
           ],
         ),

@@ -1,21 +1,5 @@
 import 'package:flutter/material.dart';
-/*
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Reviews',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-      home: MyReviewsScreen(),
-    );
-  }
-}*/
 
 class MyReviewsScreen extends StatelessWidget {
   final List<Map<String, String>> reviews = [
@@ -53,7 +37,7 @@ class MyReviewsScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pop(context);
           },
         ),
       ),
